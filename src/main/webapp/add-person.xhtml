@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  >
+  <!-- View that adds new Person -->
+
+  <h:head>
+    <!-- title of tab/window in browser -->
+    <title>#{uiconsts['addButtonLabel']}</title>
+  </h:head>
+  <h:body>
+    <h2>#{uiconsts['addButtonLabel']}</h2>
+    <h:form>
+        <h:outputText value="#{uiconsts['columnLabel_FirstName']}" />
+        <h:inputText value="#{newPerson.firstName}" />
+        <br />
+        <h:outputText value="#{uiconsts['columnLabel_LastName']}" />
+        <h:inputText value="#{newPerson.lastName}" />
+        <br />
+        <h:outputText value="#{uiconsts['columnLabel_CardNumber']}" />
+        <h:inputText value="#{newPerson.cardNumber}" />
+        <br />
+        <h:outputText value="#{uiconsts['columnLabel_DepartmentNumber']}" />
+        <h:inputText value="#{newPerson.deptNumber}"  />
+        <br />
+        <h:outputText value="#{uiconsts['columnLabel_DepartmentName']}" />
+        <h:inputText value="#{newPerson.deptName}"  />
+        <br />
+        <h:outputText value="#{uiconsts['columnLabel_Gender']}" />
+        <h:inputText value="#{newPerson.gender}"  />
+        <br />
+        <h:commandButton value="#{uiconsts['addButtonLabel']}" action="#{personController.submitPerson(newPerson)}" />
+        <h:outputLink value="index.html">Back</h:outputLink>
+    </h:form>
+  </h:body>
+</html>
