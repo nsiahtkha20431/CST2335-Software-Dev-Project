@@ -25,11 +25,6 @@ import databank.dao.PersonDao;
 import databank.model.PersonPojo;
 
 @SuppressWarnings("unused")
-/**
- * Description: Implements the C-R-U-D API for the database
- */
-//TODO don't forget this object is a managed bean with a application scope      
-@Named
 @ApplicationScoped
 public class PersonDaoImpl implements PersonDao, Serializable {
 	/** explicitly set serialVersionUID */
