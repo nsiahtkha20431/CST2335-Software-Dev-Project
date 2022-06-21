@@ -88,8 +88,9 @@ public class PersonDaoImpl implements PersonDao, Serializable {
 	public List<PersonPojo> readAllPeople() {
 		logMsg("reading all People");
 		List<PersonPojo> people = new ArrayList<>();
-		try (ResultSet rs = readAllPstmt.executeQuery();){
-			
+		try {
+			ResultSet rs = readAllPstmt.executeQuery();
+			logMsg("finished executing query");
 			
 			while (rs.next()) {
 				PersonPojo newPerson = new PersonPojo();
@@ -121,10 +122,7 @@ public class PersonDaoImpl implements PersonDao, Serializable {
 			createPstmt.setString(5, person.getDeptName());
 			createPstmt.setString(6, person.getGender());
 			
-			
-			if (person.getCardNumber() == 0) {
-				logMsg("not alowed!");
-			} else {
+			if (person.getCardNumber() != 0 && person.getDeptNumber() != 0) {
 				createPstmt.execute();
 			}
 			
