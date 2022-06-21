@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  >
+  <!-- View that adds new Person -->
+
+  <h:head>
+    <!-- title of tab/window in browser -->
+    <title>Add Device</title>
+    <style>
+    form{
+    float:left;
+    }
+    
+    </style>
+  </h:head>
+  <h:body>
+    <h2>Add Device</h2>
+    <br />
+   <h:form>
+    	<h:outputText value="Device Name " />
+    	<h:inputText value="#{newDevice.deviceName}" />
+    	<br />
+    	<h:outputText value="Serial Number" />
+    	<h:inputText value="#{newDevice.serialNumber}" />
+    	<br />
+    	<h:outputText value="Comm Type" />
+    	<h:inputText value="#{newDevice.commType}" />
+    	<br />
+    	<h:outputText value="Ip Address" />
+    	<h:inputText value="#{newDevice.ipAddress}" />
+    	<br />
+    	<h:outputText value="Serial Port Number" />
+    	<h:inputText value="#{newDevice.serialPortNumber}" />
+    	<br />
+		<h:commandButton value="#{uiconsts['addButtonLabel']}" action="#{devicesController.submitDevice(newDevice)}" />    	
+    	<h:outputLink value="list-devices.xhtml">Back</h:outputLink>
+    </h:form>
+  </h:body>
+</html>
