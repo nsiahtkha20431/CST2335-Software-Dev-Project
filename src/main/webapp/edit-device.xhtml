@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  >
+  <!-- View that edits existing Person -->
+
+  <h:head>
+    <!-- title of tab/window in browser -->
+    <title>Edit device</title>
+  </h:head>
+  <h:body>
+    <h2>Edit device</h2>
+   
+    <h:form>
+    	<h:outputText value="Device Name" />
+    	<h:inputText value="#{editDevice.deviceName}" />
+    	<br />
+    	<h:outputText value="Serial Number" />
+    	<h:inputText value="#{editDevice.serialNumber}" />
+    	<br />
+    	<h:outputText value="Comm Type" />
+    	<h:inputText value="#{editDevice.commType}" />
+    	<br />
+    	<h:outputText value="Ip Address" />
+    	<h:inputText value="#{editDevice.ipAddress}" />
+    	<br />
+    	<h:outputText value="Serial Port Number" />
+    	<h:inputText value="#{editDevice.serialPortNumber}" />
+    	<br />
+    	
+    	
+    	<br />
+    	<br />
+		<h:commandButton value="Edit Device" action="#{devicesController.submitUpdatedDevice(editDevice)}" />    	
+    	<h:outputLink value="list-devices.xhtml">Back</h:outputLink>
+    </h:form>
+    
+  </h:body>
+</html>

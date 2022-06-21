@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:jsf="http://xmlns.jcp.org/jsf"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+  >
+  <!-- View that adds new Person -->
+
+  <h:head>
+    <!-- title of tab/window in browser -->
+    <title>Create a new account</title>
+    <style>
+    form{
+    float:left;
+    }
+    
+    </style>
+  </h:head>
+  <h:body>
+    <h2>Create a new account</h2>
+    <br />
+   <h:form>
+    	<h:outputText value="Username" />
+    	<h:inputText value="#{newAccount.userName}" />
+    	<br />
+    	<h:outputText value="Password" />
+    	<h:inputText value="#{newAccount.passWord}" />
+    	<br />
+    	<h:commandButton value="Create a new account"
+    	  onclick="if (!confirm('Do you want to create an account?')) return false"
+    	 action="#{accountController.submitAccount(newAccount)}" />    	
+    	
+    </h:form>
+  </h:body>
+</html>
