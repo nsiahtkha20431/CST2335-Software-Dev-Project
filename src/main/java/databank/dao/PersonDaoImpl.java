@@ -121,7 +121,13 @@ public class PersonDaoImpl implements PersonDao, Serializable {
 			createPstmt.setInt(4, person.getDeptNumber());
 			createPstmt.setString(5, person.getDeptName());
 			createPstmt.setString(6, person.getGender());
-			createPstmt.execute();
+			
+			
+			if (person.getCardNumber() == 0) {
+				logMsg("not alowed!");
+			} else {
+				createPstmt.execute();
+			}
 			
 		} catch (SQLException e) {
 			logMsg("something went wrong creating a new person: " + e.getLocalizedMessage());

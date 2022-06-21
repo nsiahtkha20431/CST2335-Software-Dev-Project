@@ -1,17 +1,10 @@
 package databank.model;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.faces.view.ViewScoped;
 
-/**
- *
- * Description: model for the Person object <br>
- * a little read about @ViewScoped <br>
- * https://stackoverflow.com/a/6026009/764951
- */
 @ViewScoped
 public class PersonPojo implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -90,10 +83,6 @@ public class PersonPojo implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		// only include member variables that really contribute to an object's identity
-		// i.e. if variables like version/updated/name/etc. change throughout an
-		// object's lifecycle,
-		// they shouldn't be part of the hashCode calculation
 		return prime * result + Objects.hash(getId());
 	}
 
@@ -105,18 +94,7 @@ public class PersonPojo implements Serializable {
 		if (obj == null) {
 			return false;
 		}
-
-		/*
-		 * enhanced instanceof - yeah! As of JDK 14, no need for additional 'silly'
-		 * cast: if (animal instanceof Cat) { Cat cat = (Cat)animal; cat.meow(); //
-		 * other class Cat operations ... } Technically, 'otherPersonPojo' is a
-		 * <i>pattern</i> that becomes an in-scope variable binding. Note: need to watch
-		 * out just-in-case there is already a 'otherPersonPojo' variable in-scope!
-		 */
 		if (obj instanceof PersonPojo otherPersonPojo) {
-			// see comment (above) in hashCode(): compare using only member variables that
-			// are
-			// truly part of an object's identity
 			return Objects.equals(this.getId(), otherPersonPojo.getId());
 		}
 		return false;

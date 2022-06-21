@@ -48,36 +48,27 @@ public class PersonController implements Serializable {
 	}
 
 	public String navigateToAddForm() {
-		// Pay attention to the name here, it will be used as the object name in
-		// add-person.xhtml
-		// ex. <h:inputText value="#{newPerson.firstName}" id="firstName" />
 		sessionMap.put("newPerson", new PersonPojo());
 		return "add-person.xhtml?faces-redirect=true";
 	}
 
-	public String submitPerson(PersonPojo person) { //same as createAndGoBack() in Inventory
-		// TODO use DAO, also update the Person object with current date. you can use
-		// Instant::now
+	public String submitPerson(PersonPojo person) {
 		personDao.createPerson(person);
 		return "list-people?faces-redirect=true";
 	}
 
-	public String navigateToUpdateForm(int personId) { //same as goToEditInventory() in Inventory
-		// TODO use session map to keep track of of the object being edited
-		// use DAO to find the object
+	public String navigateToUpdateForm(int personId) { 
 		PersonPojo p1 = personDao.readPersonById(personId);
 		sessionMap.put("existingPerson", p1);
 		return "edit-person?faces-redirect=true";
 	}
 
-	public String submitUpdatedPerson(PersonPojo person) { //same as updateAndGoBack() in Inventory
-		// TODO use DAO
+	public String submitUpdatedPerson(PersonPojo person) { 
 		personDao.updatePerson(person);
 		return "list-people?faces-redirect=true";
 	}
 
 	public String deletePerson(int personId) {
-		// TODO use DAO
 		personDao.deletePersonById(personId);
 		return "list-people?faces-redirect=true";
 	}
